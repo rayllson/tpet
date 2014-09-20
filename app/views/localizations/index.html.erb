@@ -1,0 +1,34 @@
+<h1><%= t("localization.all") %></h1>
+
+<div style='width: 1000px;'>
+  <div id="map" style='width: 1000px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+   markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t("localization.name") %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @localizations.each do |localization| %>
+      <tr>
+        <td><%= localization.name %></td>
+        <td><%= link_to t("crud.show"), localization %></td>
+        <td><%= link_to t("crud.edit"), edit_localization_path(localization) %></td>
+        <td><%= link_to t("crud.destroy"), localization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>    
+    <% end %>
+  </tbody>
+</table>
+<br>

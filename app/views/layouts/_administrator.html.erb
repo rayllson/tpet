@@ -1,0 +1,30 @@
+<li><%= link_to t("layout.users"), users_path %></li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("layout.congregations") %><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t("crud.new"), new_congregation_path %></li>
+    <li><%= link_to t("crud.all"), congregations_path %></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("layout.localizations") %><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t("crud.new"), new_localization_path %></li>
+    <li><%= link_to t("crud.all"), localizations_path %></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("layout.designations") %><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t("crud.new"), new_designation_path %></li>
+    <li><%= link_to t("crud.all"), designations_path %></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("layout.visit_form") %><b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    <li><%= link_to t("crud.new"), new_visit_form_path %></li>
+    <li><%= link_to t("crud.all"), visit_forms_path %></li>
+  </ul>
+</li>
+<li><%= link_to t("layout.news"), posts_path %></li>

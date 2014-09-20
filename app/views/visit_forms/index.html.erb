@@ -1,0 +1,43 @@
+<h1><%= t("visit_form.all") %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t("visit_form.name") %></th>
+      <th><%= t("visit_form.address") %></th>
+      <th><%= t("visit_form.city") %></th>
+      <th><%= t("visit_form.state") %></th>
+      <th><%= t("visit_form.cep") %></th>
+      <th><%= t("visit_form.phone") %></th>
+      <th><%= t("visit_form.language") %></th>
+      <th><%= t("visit_form.sex") %></th>
+      <th><%= t("visit_form.user") %></th>
+      <th><%= t("visit_form.form_date") %></th>
+      <th><%= t("visit_form.observations") %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @visit_forms.each do |visit_form| %>
+      <tr>
+        <td><%= visit_form.name %></td>
+        <td><%= visit_form.address %></td>
+        <td><%= visit_form.city %></td>
+        <td><%= visit_form.state %></td>
+        <td><%= visit_form.cep %></td>
+        <td><%= visit_form.phone %></td>
+        <td><%= visit_form.language %></td>
+        <td><%= visit_form.sex %></td>
+        <td><%= visit_form.user %></td>
+        <td><%= visit_form.form_date %></td>
+        <td><%= visit_form.observations %></td>
+        <td><%= link_to 'Show', visit_form %></td>
+        <td><%= link_to 'Edit', edit_visit_form_path(visit_form) %></td>
+        <td><%= link_to 'Destroy', visit_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

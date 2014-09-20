@@ -1,0 +1,24 @@
+<h1><%= t("congregation.all") %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t("congregation.name") %></th>
+      <th><%= t("congregation.address") %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @congregations.each do |congregation| %>
+      <tr>
+        <td><%= congregation.name %></td>
+        <td><%= congregation.address %></td>
+        <td><%= link_to t("crud.show"), congregation %></td>
+        <td><%= link_to t("crud.edit"), edit_congregation_path(congregation) %></td>
+        <td><%= link_to t("crud.destroy"), congregation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

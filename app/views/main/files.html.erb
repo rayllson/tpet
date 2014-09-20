@@ -1,0 +1,4 @@
+<% @files.map do |attachment| %>
+	<%= link_to attachment.pdf_file_name, attachment.pdf.url %><br>
+		
+<% end %>

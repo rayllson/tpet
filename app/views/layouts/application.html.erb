@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TPET</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 
+                             '//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry',
+                             '//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="container">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TPET</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <% if current_user && current_user.admin? %>
+                <%= render "layouts/administrator" %>
+              <% elsif current_user && !current_user.admin? %>
+                <%= render "layouts/pioneer" %>
+              <% else %>
+                <li><%= link_to t("layout.sign_up"), "/users/sign_up" %></li>
+              <% end %>
+              
+              <% if current_user %>
+                <li><%= link_to current_user.name, edit_user_registration_path %></li>
+                <li><%= link_to t("layout.exit"), destroy_user_session_path, :method => :delete%></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="col-md-3"></div>
+      </div><!-- fim da row -->
+    </div> <!-- fim do container -->
+</body>
+</html>

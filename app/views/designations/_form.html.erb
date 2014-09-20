@@ -1,0 +1,42 @@
+<%= form_for(@designation, :class => "navbar-form navbar-right") do |f| %>
+  <% if @designation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@designation.errors.count, "error") %> prohibited this designation from being saved:</h2>
+
+      <ul>
+      <% @designation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label t("designation.localization") %><br>
+    <%= collection_select(:designation, :localization_id, Localization.all, :id, :name, {}, {:class => "form-control"})%>
+
+
+    <%= f.label t("designation.schedule")%><br>
+    <%= f.text_field :schedule, :class => "form-control" %>
+
+    <%= f.label t("designation.week_day") %><br>
+    <%= f.select :week_day, options_for_select([["Domingo"],
+                                                ["Segunda"],
+                                                ["Terça"],
+                                                ["Quarta"],
+                                                ["Quinta"],
+                                                ["Sexta"],
+                                                ["Sabádo"]]), {}, {:class => "form-control"} %>
+
+    <%= f.label t("designation.pioneers") %><br>
+    <%= f.collection_select(:user_ids, User.all, :id, :name, {},{:class => "form-control", :multiple => true, :size => 5}) %><br>
+
+    <%= f.submit t("crud.confirm"), :class => "btn btn-success" %>
+<% end %>
+
+<script>
+  jQuery('#designation_schedule').datetimepicker({
+    lang: 'pt',
+    datepicker:false,
+    format:'H:i'
+  });
+</script>

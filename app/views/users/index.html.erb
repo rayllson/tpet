@@ -1,0 +1,16 @@
+<h1>Usuários aguardando aprovação</h1></br>
+	<% @users.each do |user| %>
+		<% if !user.approved? %> 
+			<%= link_to user.name, user %>
+			<%= button_to "Confirmar", confirmar_usuario_path(user) %>
+			<%= button_to "Deletar", user, :method => :delete %></br>
+		<% end %>
+	<% end %>
+
+<h1>Todos Usuários Cadastrados</h1></br>
+	<% @users.each do |user| %>
+		<% if user.approved? && !user.admin? %> 
+			<%= link_to user.name, user %>
+			<%= button_to "Deletar", user, :method => :delete %></br>
+		<% end %>
+	<% end %>

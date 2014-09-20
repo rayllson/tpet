@@ -1,0 +1,19 @@
+<h1><%= t("designation.all") %></h1>
+
+    <% @designations.each do |designation| %>
+      <% if !designation.localization.nil? %> 
+        <%= t("designation.localization") %>: <%= designation.localization.name %></br>
+        Designados: <% designation.users.map do |user| %>
+         <%= user.name %>
+        <% end %>
+        </br>
+        Dia da Semana: <%= designation.week_day %></br>
+        Horário: <%= designation.schedule.strftime("%I:%M") %></br>
+        <%= link_to t("crud.show"), designation %>
+        <%= link_to t("crud.edit"), edit_designation_path(designation) %>
+        <%= link_to t("crud.destroy"), designation, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </br></br>
+      <% end %>
+    <% end %>
+<br>

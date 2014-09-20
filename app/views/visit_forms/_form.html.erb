@@ -1,0 +1,62 @@
+<%= form_for(@visit_form, :class => "navbar-form navbar-right") do |f| %>
+  <% if @visit_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@visit_form.errors.count, "error") %> prohibited this visit_form from being saved:</h2>
+
+      <ul>
+      <% @visit_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label t("visit_form.name") %><br>
+    <%= f.text_field :name, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.address") %><br>
+    <%= f.text_field :address, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.city") %><br>
+    <%= f.text_field :city, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.state") %><br>
+    <%= f.text_field :state, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.cep") %><br>
+    <%= f.text_field :cep, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.phone") %><br>
+    <%= f.text_field :phone, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.language") %><br>
+    <%= f.text_field :language, :class => "form-control" %>
+ 
+    <%= f.label t("visit_form.sex") %><br>
+    <%= f.radio_button(:sex, "Masculino") %>
+    <%= label_tag(:sex_male, "Masculino") %>
+    <%= f.radio_button(:sex, "Feminino") %>
+    <%= label_tag(:sex_female, "Feminino") %><br>
+ 
+    <%= f.label t("visit_form.sended_user") %><br/>
+    <%= collection_select(:visit_form, :sended_user_id, User.all, :id, :name, {}, {:class => "form-control"} )%>  
+ 
+    <%= f.label t("visit_form.send_to") %><br/>
+    <%= collection_select(:visit_form, :congregation_id, Congregation.all, :id, :name, {}, {:class => "form-control"} )%>   
+ 
+    <%= f.label t("visit_form.form_date") %><br>
+    <%= f.text_field :form_date, :class => "form-control" %><br>
+ 
+    <%= f.label t("visit_form.observations") %><br>
+    <%= f.text_area :observations, :class => "form-control" %><br>
+ 
+    <%= f.submit t("crud.confirm"), :class => "btn btn-success" %>
+<% end %>
+
+<script>
+  jQuery('#visit_form_form_date').datetimepicker({
+     lang:'pt',
+     timepicker:false,
+     format:'d.m.Y'
+  });
+</script>

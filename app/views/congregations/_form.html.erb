@@ -1,0 +1,25 @@
+<%= form_for(@congregation, :class => "navbar-form navbar-right") do |f| %>
+  <% if @congregation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@congregation.errors.count, "error") %> prohibited this congregation from being saved:</h2>
+
+      <ul>
+      <% @congregation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%= f.label t("congregation.name") %><br>
+    <%= f.text_field :name, :class => "form-control" %>
+
+
+    <%= f.label t("congregation.address") %><br>
+    <%= f.text_field :address, :class => "form-control" %>
+  </br>
+
+    <%= f.submit t("crud.confirm"), :class => 'btn btn-success' %>
+
+<% end %>

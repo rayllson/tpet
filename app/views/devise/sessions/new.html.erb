@@ -1,0 +1,14 @@
+<% if !current_user %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), :class => "navbar-form navbar-right", :role => "form") do |f| %>
+	    <div class="form-group">
+	      <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email*" %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Senha*" %>
+	    </div>
+
+	    <div class="form-group"><%= f.submit "Entrar", :class => "btn btn-success" %></div>
+	    <div class="form-group"><%= link_to "Esqueceu sua senha?", '/users/password/new' %></div>
+	 <% end %>
+<% end %>

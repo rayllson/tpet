@@ -1,0 +1,40 @@
+<h1><%= t("devise.login.sign_up") %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => "navbar-form navbar-right") do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label t("users.name") %>
+  <%= f.text_field :name, autofocus: true, :class => "form-control" %>
+
+  <%= f.label t("users.congregation") %>
+    <%= collection_select(:user, :congregation_id, Congregation.all, :id, :name, {}, {:class => "form-control"} )%>   
+  
+
+  <%= f.label t("users.address") %>
+  <%= f.text_field :address, autofocus: true, :class => "form-control" %>
+
+  <%= f.label t("users.phone")%>
+  <%= f.text_field :phone, autofocus: true, :class => "form-control" %>
+
+  <%= f.hidden_field :admin, autofocus: true, :value => false %>
+
+  <%= f.label t("users.email") %>
+  <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+
+  <%= f.label t("users.pioneer") %>
+  <%= f.check_box :admin, autofocus: true %> Sim<br/>
+
+  <%= f.label t("users.congregation_function") %><br>
+    <%= f.select :congregation_function, options_for_select([["Nenhuma", 0],
+                                                ["Ançião", 1],
+                                                ["Servo Ministerial", 2]]
+                                             ), {}, {:class => "form-control"} %>
+
+  <%= f.label t("users.password") %>
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+
+  <%= f.label t("users.password_confirmation") %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %></br>
+
+  <%= f.submit t("crud.confirm"), :class => "btn btn-success" %>
+<% end %>

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t("designation.localization") %></strong>
+  <%= @designation.localization.name %>
+</p>
+
+<p>
+  <strong><%= t("designation.week_day") %></strong>
+  <%= @designation.week_day %>
+</p>
+
+ <strong><%= t("designation.schedule") %></strong>
+  <%= @designation.schedule.strftime("%I:%M") %>
+</p>
+
+<%= link_to t("crud.back"), designations_path, :class => "btn btn-success" %>

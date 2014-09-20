@@ -1,0 +1,5 @@
+<% @visit_forms.each do |visit_form|%>
+	<p>Data do Formulário: <%= l(visit_form.form_date) %><p>
+	<p>Interessado: <%= visit_form.name %></p>
+	<p>Endereço: <%= visit_form.address %></p>
+<% end %>

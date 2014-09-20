@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @visit_form.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @visit_form.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @visit_form.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @visit_form.state %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @visit_form.cep %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @visit_form.phone %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @visit_form.language %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @visit_form.sex %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @visit_form.user %>
+</p>
+
+<p>
+  <strong>Form date:</strong>
+  <%= @visit_form.form_date %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @visit_form.observations %>
+</p>
+
+<%= link_to 'Edit', edit_visit_form_path(@visit_form) %> |
+<%= link_to 'Back', visit_forms_path %>

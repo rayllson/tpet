@@ -1,0 +1,11 @@
+<% @designations.each do |designation| %>
+	<% #if !designation.localization.nil? %>
+		Local: <%= link_to designation.localization.name, designation.localization %></br> 
+		Horário: <%= designation.schedule %></br>
+		Companheiros: 
+		<% designation.users.map do |user|%>
+			<%= user.name %>,
+		<% end %>
+	<% #end %>
+	<br><br>
+<% end %> 
