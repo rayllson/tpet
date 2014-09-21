@@ -1,5 +1,5 @@
-<li><%= link_to "Mapa", '/main/map' %></li>
-<li><%= link_to t("layout.designations"), '/main/designations' %></li>
-<li><%= link_to t("layout.visit_form"), "/main/visit_form" %></li>
-<li><%= link_to t("layout.news"), '/main/posts' %></li>
-<li><%= link_to "Info", '/main/info' %></li>
+<li><%= link_to "<i class='glyphicon glyphicon-list'></i> #{t("layout.designations")}".html_safe, '/main/designations' %></li>
+<li><%= link_to "<i class='glyphicon glyphicon-map-marker'></i> Mapa".html_safe, '/main/map' %></li>
+<li><%= link_to "<i class='glyphicon glyphicon-info-sign'></i> #{t("layout.visit_form")}".html_safe, "/main/visit_form" %></li>
+<li><%= link_to "#{t("layout.news")}".html_safe, '/main/posts' %></li>
+<li><%= link_to "<i class='glyphicon glyphicon-info-sign'></i> Sobre".html_safe, '/main/info' %></li>
