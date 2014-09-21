@@ -25,7 +25,7 @@
   <%= f.check_box :admin, autofocus: true %> Sim<br/>
 
   <%= f.label t("users.congregation_function") %><br>
-    <%= f.select :congregation_function, options_for_select([["Nenhuma", 0],
+    <%= f.select :congregation_function, options_for_select([["Não Listada", 0],
                                                 ["Ançião", 1],
                                                 ["Servo Ministerial", 2]]
                                              ), {}, {:class => "form-control"} %>

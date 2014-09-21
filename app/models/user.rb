@@ -30,5 +30,9 @@ class User < ActiveRecord::Base
     end 
   end
 
+  def self.approved_users
+    User.where("approved = ?", true)
+  end
+
   
 end

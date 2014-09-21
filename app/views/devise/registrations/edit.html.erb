@@ -22,7 +22,7 @@
   <%= f.check_box :admin, autofocus: true %></br>
 
   <%= f.label t("users.congregation_function") %><br>
-  <%= f.select :congregation_function, [["Nenhuma", 0],["Ançião", 1],["Servo Ministerial", 2]], {}, {:class => "form-control"} %>
+  <%= f.select :congregation_function, [["Não Listada", 0],["Ançião", 1],["Servo Ministerial", 2]], {}, {:class => "form-control"} %>
 
   <%= f.label t("users.email") %><br />
   <%= f.email_field :email, autofocus: true, :class => "form-control" %>
