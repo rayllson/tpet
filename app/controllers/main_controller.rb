@@ -3,6 +3,7 @@ class MainController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @last_news = Post.last
   end
 
   def designations
@@ -18,10 +19,21 @@ class MainController < ApplicationController
   end
 
   def visit_form
-    @visit_forms = current_user.congregation.visit_forms
+    @without_pioneers_forms = current_user.congregation.visit_forms.where(:user => nil)
+    @my_forms = VisitForm.where(:user => current_user)
+  end
+
+  def confirm_revisit
+    visit_form = VisitForm.find(params[:visit_form_id]).update(:user => current_user)
+    redirect_to :back
   end
 
   def info
   end
+
+  def posts
+    @posts = Post.order(:created_at => :desc)
+  end
+
 
 end

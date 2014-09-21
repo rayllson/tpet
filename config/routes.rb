@@ -16,11 +16,13 @@ Rails.application.routes.draw do
   resources :congregations
 
   get 'main/index'
+  get 'main/posts'
   get 'main/info'
   get 'main/designations'
   get 'main/map'
-  get 'main/messages'
-  get 'main/files'
   get 'main/visit_form'
+  match 'confirmar_revisita/queira_visitar/:visit_form_id' => 'main#confirm_revisit',
+                                                              via: [:get, :post], 
+                                                              :as => "confirmar_revisita"
   
 end

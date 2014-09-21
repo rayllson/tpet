@@ -1,0 +1,20 @@
+  <%= t("users.name") %>: <%= @user.name %><br />
+
+  <%= t("users.congregation") %>: <%= @user.congregation.name %><br/>   
+
+  <%= t("users.email") %>: <%= @user.email %><br />
+
+  
+  <%= t("users.address") %>: <%= @user.address %><br />
+
+  <%= t("users.phone")%>: <%= @user.phone %><br />
+
+  <% if current_user.admin? %>
+
+    <%= t("users.pioneer") %>: <%= pioneer?(@user.pioneer) %><br/>
+
+    <%= "Admi" %>: <%= admin?(@user.admin) %></br>
+
+    <%= t("users.congregation_function") %>: <%= congregation_function?(@user.congregation_function) %><br>
+
+  <% end %>

@@ -1,4 +1,13 @@
-<% @visit_forms.each do |visit_form|%>
+<h1>Formularios sem pioneiros</h1>
+<% @without_pioneers_forms.each do |visit_form|%>
+	<p>Data do Formulário: <%= l(visit_form.form_date)%><p>
+	<p>Interessado: <%= visit_form.name %></p>
+	<p>Endereço: <%= visit_form.address %></p>
+	<%= button_to "Quero Revisitar!", confirmar_revisita_path(visit_form) %>
+<% end %>
+
+<h1>Meus Formularios</h1>
+<% @my_forms.each do |visit_form|%>
 	<p>Data do Formulário: <%= l(visit_form.form_date) %><p>
 	<p>Interessado: <%= visit_form.name %></p>
 	<p>Endereço: <%= visit_form.address %></p>
