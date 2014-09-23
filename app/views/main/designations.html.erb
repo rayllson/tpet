@@ -1,12 +1,13 @@
 <% @designations.each do |designation| %>
-	<% #if !designation.localization.nil? %>
-		Local: <%= link_to designation.localization.name, designation.localization %></br> 
-		Dia: <%= designation.week_day %></br>
-		Horário: <%= designation.schedule.strftime("%H:%M") %></br>
-		Companheiros: 
-		<% designation.users.map do |user|%>
-			<%= link_to user.name, user %>,
-		<% end %>
-	<% #end %>
-	<br><br>
+		   <div class="col-xs-6 col-sm-4 placeholder">
+               <div class="card">
+                <div class="card-image image2">
+                    <div class="banner"></div>
+                    <h2><%= designation.localization.name %></h2>
+                </div>
+                <p>No <%= designation.week_day %> as <%= designation.schedule.strftime("%H:%M") %> com <%= link_to "#{designation.users.first.name}, #{designation.users.second.name} e + #{designation.users.size}", "" %></p>
+            </div>
+            </div>
+
 <% end %> 
+        

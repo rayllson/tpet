@@ -13,6 +13,7 @@
  *= require bootstrap
  *= require dashboard
  *= require jquery.datetimepicker
+ *= require styles
  *= require_self
  *= require_tree .
  */
