@@ -16,13 +16,13 @@
   <%= f.label t("users.phone")%>
   <%= f.text_field :phone, autofocus: true, :class => "form-control" %>
 
-  <%= f.hidden_field :admin, autofocus: true, :value => false %>
+  <%= f.hidden_field :admin, :value => false %>
 
   <%= f.label t("users.email") %>
   <%= f.email_field :email, autofocus: true, :class => "form-control" %>
 
   <%= f.label t("users.pioneer") %>
-  <%= f.check_box :admin, autofocus: true %> Sim<br/>
+  <%= f.check_box :pioneer, autofocus: true %> Sim<br/>
 
   <%= f.label t("users.congregation_function") %><br>
     <%= f.select :congregation_function, options_for_select([["Não Listada", 0],

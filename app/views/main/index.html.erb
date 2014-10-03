@@ -14,7 +14,9 @@
 <% end %>
 
 <% if current_user %>
-	<h1><%= @last_news.title %></h1>
-	<i>Criado em: <%= l(@last_news.created_at, :format => :long) %>, por: <%= @last_news.user.name %></i><br>
-	<%= @last_news.content %><br>
+	<% if @last_news.present? %>
+		<h1><%= @last_news.title %></h1>
+		<i>Criado em: <%= l(@last_news.created_at, :format => :long) %>, por: <%= @last_news.user.name %></i><br>
+		<%= @last_news.content %><br>
+	<% end %>
 <% end %>
